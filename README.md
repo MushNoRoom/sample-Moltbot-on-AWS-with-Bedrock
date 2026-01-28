@@ -154,6 +154,55 @@ http://localhost:18789/?token=<your-token>
 
 ### Connect Messaging Platforms
 
+
+#### Telegram
+
+1. **Configure Telegram Bot via BotFather**
+
+Create a Telegram Bot by opening Telegram, searching for ``@BotFather``, and sending ``/newbot``. Follow the prompts:
+
+```
+Set your Bot's name
+Set Bot username , e.g., jiade_clawd_bot
+BotFather will return a Token, for example: 123412344321:ABC1234567890def1234567890GHIjklMNOpqrSTUvwxYZ
+```
+
+2. **Configure Telegram Channel in Web UI**
+
+```bash
+Add the channels configuration as shown in the image, then click Save and Reload to apply:
+
+"channels": {
+  "telegram": {
+    "enabled": true,
+    "botToken": "Your Bot Token",
+    "dmPolicy": "pairing"
+  }
+}
+```
+
+3. **Get Pairing Code from Client**
+
+Go back to your Telegram bot. With pairing configured, send your first message to the Bot. It will reply with a pairing code, for example:
+
+```bash
+Pairing code: GE4BQTGD
+Your Telegram user id: 123456789
+```
+
+4. **Approve Pairing on Server**
+
+Approve via SSM command (no login required) or SSH to the EC2 server and run:
+
+```
+clawdbot pairing approve telegram <Your Pairing Code>
+```
+
+![CloudFormation Outputs](images/20260128-144241.jpg)
+
+
+
+
 #### WhatsApp (Recommended)
 
 1. **In Web UI**: Click "Channels" → "Add Channel" → "WhatsApp"
@@ -165,17 +214,6 @@ http://localhost:18789/?token=<your-token>
 
 **Tip**: Use a dedicated phone number or enable `selfChatMode` for personal number.
 
-#### Telegram
-
-1. **Create Bot**: Message [@BotFather](https://t.me/botfather)
-   ```
-   /newbot
-   Choose a name: My Clawdbot
-   Choose a username: my_clawdbot_bot
-   ```
-2. **Copy Token**: BotFather will give you a token like `123456:ABC-DEF...`
-3. **Configure**: In Web UI, add Telegram channel with your bot token
-4. **Test**: Send `/start` to your bot on Telegram
 
 #### Discord
 
