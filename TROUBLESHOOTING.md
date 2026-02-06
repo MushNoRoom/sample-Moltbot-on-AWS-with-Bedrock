@@ -7,7 +7,7 @@
 ```bash
 # Get instance ID from CloudFormation
 INSTANCE_ID=$(aws cloudformation describe-stacks \
-  --stack-name moltbot-bedrock \
+  --stack-name openclaw-bedrock \
   --query 'Stacks[0].Outputs[?OutputKey==`InstanceId`].OutputValue' \
   --output text \
   --region us-west-2)
@@ -19,7 +19,7 @@ aws ssm start-session --target $INSTANCE_ID --region us-west-2
 sudo su - ubuntu
 ```
 
-### Moltbot Common Commands
+### openclaw Common Commands
 
 ```bash
 # Check status
@@ -82,7 +82,7 @@ aws ec2 describe-instances \
   --region us-west-2
 
 # Restart SSM agent (if you have SSH access)
-ssh -i moltbot-key.pem ubuntu@<instance-ip>
+ssh -i openclaw-key.pem ubuntu@<instance-ip>
 sudo snap restart amazon-ssm-agent
 ```
 
@@ -294,7 +294,7 @@ aws ssm start-session \
 
 ### 8. Slow Response Times
 
-**Symptom**: Moltbot takes long time to respond
+**Symptom**: openclaw takes long time to respond
 
 **Solutions**:
 
@@ -324,7 +324,7 @@ ping bedrock-runtime.$REGION.amazonaws.com
 **Solutions**:
 
 ```bash
-# 1. Check Moltbot version
+# 1. Check openclaw version
 clawdbot --version
 
 # 2. Update to latest
@@ -348,10 +348,10 @@ XDG_RUNTIME_DIR=/run/user/1000 journalctl --user -u clawdbot-gateway -f
 ```bash
 # Create key pair in the region
 aws ec2 create-key-pair \
-  --key-name moltbot-key \
+  --key-name openclaw-key \
   --region us-west-2 \
   --query 'KeyMaterial' \
-  --output text > moltbot-key.pem
+  --output text > openclaw-key.pem
 ```
 
 **b) Insufficient permissions**
@@ -371,7 +371,7 @@ aws ec2 describe-account-attributes \
 **View failure reason**:
 ```bash
 aws cloudformation describe-stack-events \
-  --stack-name moltbot-bedrock \
+  --stack-name openclaw-bedrock \
   --region us-west-2 \
   --query 'StackEvents[?ResourceStatus==`CREATE_FAILED`]'
 ```
@@ -384,7 +384,7 @@ aws cloudformation describe-stack-events \
 #!/bin/bash
 # Save as diagnose.sh and run on EC2 instance
 
-echo "=== Moltbot Health Check ==="
+echo "=== openclaw Health Check ==="
 echo ""
 
 echo "1. Service Status:"
@@ -426,7 +426,7 @@ aws bedrock-runtime invoke-model \
 #!/bin/bash
 # Complete reset if configuration is corrupted
 
-echo "=== Resetting Moltbot Configuration ==="
+echo "=== Resetting openclaw Configuration ==="
 
 # Stop service
 XDG_RUNTIME_DIR=/run/user/1000 systemctl --user stop clawdbot-gateway
@@ -512,7 +512,7 @@ XDG_RUNTIME_DIR=/run/user/1000 systemctl --user restart clawdbot-gateway
 ```bash
 # Update CloudFormation stack
 aws cloudformation update-stack \
-  --stack-name moltbot-bedrock \
+  --stack-name openclaw-bedrock \
   --use-previous-template \
   --parameters \
     ParameterKey=InstanceType,ParameterValue=c7g.xlarge \
@@ -558,12 +558,12 @@ aws ce get-cost-and-usage \
 ```bash
 # Run on EC2 instance
 cat > /tmp/diagnostic-info.txt << 'EOF'
-=== Moltbot Diagnostic Information ===
+=== openclaw Diagnostic Information ===
 Date: $(date)
 Region: $(curl -s http://169.254.169.254/latest/meta-data/placement/region)
 Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)
 
-=== Moltbot Version ===
+=== openclaw Version ===
 $(clawdbot --version)
 
 === Service Status ===
@@ -584,10 +584,10 @@ cat /tmp/diagnostic-info.txt
 
 ### Support Resources
 
-- **Moltbot Issues**: https://github.com/moltbot/moltbot/issues
-- **Moltbot Discord**: https://discord.gg/moltbot
+- **openclaw Issues**: https://github.com/openclaw/openclaw/issues
+- **openclaw Discord**: https://discord.gg/openclaw
 - **AWS Bedrock**: https://repost.aws/tags/bedrock
-- **This Project**: https://github.com/aws-samples/sample-Moltbot-on-AWS-with-Bedrock/issues
+- **This Project**: https://github.com/aws-samples/sample-openclaw-on-AWS-with-Bedrock/issues
 
 ## Reference
 

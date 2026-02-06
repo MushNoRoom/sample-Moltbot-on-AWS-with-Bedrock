@@ -1,6 +1,6 @@
-# Moltbot on AWS with Bedrock
+# openclaw on AWS with Bedrock
 
-> Deploy [Moltbot](https://github.com/moltbot/moltbot) (formerly Clawdbot) on AWS using Amazon Bedrock instead of managing Anthropic/OpenAI/DeepSeek API keys. Enterprise-ready, secure, one-click deployment with Graviton ARM processors.
+> Deploy [openclaw](https://github.com/openclaw/openclaw) (formerly Clawdbot) on AWS using Amazon Bedrock instead of managing Anthropic/OpenAI/DeepSeek API keys. Enterprise-ready, secure, one-click deployment with Graviton ARM processors.
 
 English | [简体中文](README_CN.md)
 
@@ -10,11 +10,11 @@ English | [简体中文](README_CN.md)
 
 ## What is This?
 
-[Moltbot](https://github.com/moltbot/moltbot) (formerly Clawdbot) is an open-source personal AI assistant that connects to WhatsApp, Slack, Discord, and more. This project provides an **AWS-native deployment** using Amazon Bedrock's unified API, eliminating the need to manage multiple API keys from different providers.
+[openclaw](https://github.com/openclaw/openclaw) (formerly Clawdbot/moltbot) is an open-source personal AI assistant that connects to WhatsApp, Slack, Discord, and more. This project provides an **AWS-native deployment** using Amazon Bedrock's unified API, eliminating the need to manage multiple API keys from different providers.
 
 ## Why AWS Native?
 
-| Original Moltbot | This Project |
+| Original openclaw | This Project |
 |-------------------|--------------|
 | Multiple API keys (Anthropic/OpenAI/etc.) | **Amazon Bedrock unified API + IAM** |
 | Single model, fixed cost | **8 models available, Nova 2 Lite (90% cheaper vs Anthropic)** |
@@ -85,17 +85,17 @@ Click to deploy:
 
 | Region | Launch Stack |
 |--------|--------------|
-| **US West (Oregon)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=moltbot-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
-| **US East (N. Virginia)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=moltbot-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
-| **EU (Ireland)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=moltbot-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
-| **Asia Pacific (Tokyo)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?stackName=moltbot-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
+| **US West (Oregon)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=openclaw-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
+| **US East (N. Virginia)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=openclaw-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
+| **EU (Ireland)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/review?stackName=openclaw-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
+| **Asia Pacific (Tokyo)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/review?stackName=openclaw-bedrock&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock.yaml) |
 
 **macOS (EC2 Mac) - For Apple Development**
 
 | Region | Launch Stack | Monthly Cost |
 |--------|--------------|--------------|
-| **US West (Oregon)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=moltbot-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
-| **US East (N. Virginia)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=moltbot-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
+| **US West (Oregon)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=openclaw-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
+| **US East (N. Virginia)** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=openclaw-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
 
 > **Mac instances**: 24-hour minimum allocation, best for iOS/macOS development teams. [Learn more →](#macos-deployment)
 
@@ -199,11 +199,11 @@ cat ~/.clawdbot/gateway_token.txt
 http://localhost:18789/?token=<your-token>
 ```
 
-## How to Use Moltbot
+## How to Use openclaw
 
 ### Connect Messaging Platforms
 
-**For detailed configuration guides, visit [Moltbot Official Documentation](https://docs.molt.bot/).**
+**For detailed configuration guides, visit [openclaw Official Documentation](https://docs.molt.bot/).**
 
 #### WhatsApp (Recommended)
 
@@ -212,7 +212,7 @@ http://localhost:18789/?token=<your-token>
    - Open WhatsApp → Settings → Linked Devices
    - Tap "Link a Device"
    - Scan the QR code displayed
-3. **Verify**: Send a test message to your Moltbot number
+3. **Verify**: Send a test message to your openclaw number
 
 **Tip**: Use a dedicated phone number or enable `selfChatMode` for personal number.
 
@@ -223,8 +223,8 @@ http://localhost:18789/?token=<your-token>
 1. **Create Bot**: Message [@BotFather](https://t.me/botfather)
    ```
    /newbot
-   Choose a name: My Moltbot
-   Choose a username: my_moltbot_bot
+   Choose a name: My openclaw
+   Choose a username: my_openclaw_bot
    ```
 2. **Copy Token**: BotFather will give you a token like `123456:ABC-DEF...`
 3. **Configure**: In Web UI, add Telegram channel with your bot token
@@ -268,13 +268,13 @@ http://localhost:18789/?token=<your-token>
 
 #### Lark / Feishu (飞书) - Community Plugin
 
-Moltbot doesn't have official Lark/Feishu support, but the community has created a plugin:
+openclaw doesn't have official Lark/Feishu support, but the community has created a plugin:
 
-**Community Plugin**: https://www.npmjs.com/package/moltbot-feishu
+**Community Plugin**: https://www.npmjs.com/package/openclaw-feishu
 
-Install on your EC2 instance to forward messages between Feishu and Moltbot via WebSocket. No public IP or domain required.
+Install on your EC2 instance to forward messages between Feishu and openclaw via WebSocket. No public IP or domain required.
 
-### Using Moltbot
+### Using openclaw
 
 #### Send Messages
 
@@ -348,12 +348,12 @@ Always respond in a friendly tone.
 
 Configure different agents for different channels in Web UI.
 
-For detailed guides, visit [Moltbot Documentation](https://docs.molt.bot/).
+For detailed guides, visit [openclaw Documentation](https://docs.molt.bot/).
 
 ## Architecture
 
 ```
-Your Phone/Computer → WhatsApp/Telegram → EC2 (Moltbot) → Bedrock (Claude)
+Your Phone/Computer → WhatsApp/Telegram → EC2 (openclaw) → Bedrock (Claude)
                                               ↓
                                          Your Data Stays Here
                                          (Secure, Private, Audited)
@@ -371,7 +371,7 @@ Your Phone/Computer → WhatsApp/Telegram → EC2 (Moltbot) → Bedrock (Claude)
 
 **🌐 Scale**: Deploy globally with identical config. Global CRIS auto-routes to optimal regions. Scale t4g.small to c7g.xlarge in minutes.
 
-**🚀 Orchestration**: Moltbot can spin up 100 Spot instances for parallel tasks, trigger Glue jobs, invoke Lambda—impossible on local hardware.
+**🚀 Orchestration**: openclaw can spin up 100 Spot instances for parallel tasks, trigger Glue jobs, invoke Lambda—impossible on local hardware.
 
 ### Architecture
 
@@ -386,7 +386,7 @@ Your Phone/Computer → WhatsApp/Telegram → EC2 (Moltbot) → Bedrock (Claude)
 │                                                     │
 │  ┌──────────────┐         ┌──────────────┐        │
 │  │ EC2 Instance │────────▶│   Bedrock    │        │
-│  │  (Moltbot)   │  IAM    │ (Nova/Claude)│        │
+│  │  (openclaw)   │  IAM    │ (Nova/Claude)│        │
 │  └──────────────┘  Auth   └──────────────┘        │
 │         │                        │                  │
 │         │ VPC Endpoints          │                  │
@@ -407,7 +407,7 @@ Cost: ~$0.01/request | Time: 2-5s | Security: Private network
 ```
 
 **Key Components**:
-- **EC2 Instance**: Runs Moltbot gateway (~500MB-1GB RAM)
+- **EC2 Instance**: Runs openclaw gateway (~500MB-1GB RAM)
 - **IAM Role**: Authenticates with Bedrock (no API keys)
 - **SSM Session Manager**: Secure access without public ports
 - **VPC Endpoints**: Private network access to Bedrock
@@ -518,7 +518,7 @@ Common issues: SSM connection, Web UI token mismatch, model configuration, port 
 
 **Full guide**: [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
 
-## Comparison with Original Moltbot
+## Comparison with Original openclaw
 
 ### Deployment Options
 
@@ -558,7 +558,7 @@ Common issues: SSM connection, Web UI token mismatch, model configuration, port 
 - ✅ iOS/macOS app development and CI/CD
 - ✅ Xcode build automation
 - ✅ Apple ecosystem integration (iCloud, APNs)
-- ❌ General Moltbot use (Linux is 12x cheaper)
+- ❌ General openclaw use (Linux is 12x cheaper)
 
 ### Mac Instance Options
 
@@ -590,14 +590,14 @@ This deployment template is provided as-is. Clawdbot itself is licensed under it
 
 ## Resources
 
-- [Moltbot Official Docs](https://docs.molt.bot/)
-- [Moltbot GitHub](https://github.com/moltbot/moltbot)
+- [openclaw Official Docs](https://docs.molt.bot/)
+- [openclaw GitHub](https://github.com/openclaw/openclaw)
 - [Amazon Bedrock Docs](https://docs.aws.amazon.com/bedrock/)
 - [SSM Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)
 
 ## Support
 
-- **Moltbot Issues**: [GitHub Issues](https://github.com/moltbot/moltbot/issues)
+- **openclaw Issues**: [GitHub Issues](https://github.com/openclaw/openclaw/issues)
 - **AWS Bedrock**: [AWS re:Post](https://repost.aws/tags/bedrock)
 - **This Project**: [GitHub Issues](https://github.com/your-repo/clawdbot-aws-bedrock/issues)
 

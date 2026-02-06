@@ -1,16 +1,16 @@
-# Moltbot AWS Bedrock 部署方案
+# openclaw AWS Bedrock 部署方案
 
-> 在 AWS 上使用 Amazon Bedrock 部署 [Moltbot](https://github.com/moltbot/moltbot)（原 Clawdbot）。无需管理 Anthropic/OpenAI/DeepSeek API 密钥，使用 Graviton ARM 处理器，企业级、安全、一键部署。
+> 在 AWS 上使用 Amazon Bedrock 部署 [openclaw](https://github.com/openclaw/openclaw)（原 Clawdbot/moltbot）。无需管理 Anthropic/OpenAI/DeepSeek API 密钥，使用 Graviton ARM 处理器，企业级、安全、一键部署。
 
 [English](README.md) | 简体中文
 
 ## 这是什么？
 
-[Moltbot](https://github.com/moltbot/moltbot)（原 Clawdbot）是一个开源的个人 AI 助手，可以连接 WhatsApp、Slack、Discord 等平台。本项目提供 **AWS 原生部署方案**，使用 Amazon Bedrock 统一 API，无需管理多个 AI 提供商的 API 密钥。
+[openclaw](https://github.com/openclaw/openclaw)（原 Clawdbot）是一个开源的个人 AI 助手，可以连接 WhatsApp、Slack、Discord 等平台。本项目提供 **AWS 原生部署方案**，使用 Amazon Bedrock 统一 API，无需管理多个 AI 提供商的 API 密钥。
 
 ## 为什么选择 AWS 原生版？
 
-| 原版 Moltbot | 本项目 |
+| 原版 openclaw | 本项目 |
 |---------------|--------|
 | 多个 API 密钥（Anthropic/OpenAI 等） | **Amazon Bedrock 统一 API + IAM** |
 | 单一模型，固定成本 | **8 个模型可选，Nova 2 Lite（对比 Anthropic 便宜 90%）** |
@@ -88,8 +88,8 @@
 
 | 区域 | 部署 | 月度成本 |
 |------|------|----------|
-| **美国西部（俄勒冈）** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=moltbot-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
-| **美国东部（弗吉尼亚）** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=moltbot-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
+| **美国西部（俄勒冈）** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/review?stackName=openclaw-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
+| **美国东部（弗吉尼亚）** | [![Launch Stack](https://s3.amazonaws.com/cloudformation-examples/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/review?stackName=openclaw-mac&templateURL=https://sharefile-jiade.s3.cn-northwest-1.amazonaws.com.cn/clawdbot-bedrock-mac.yaml) | $468-792 |
 
 > **Mac 实例**：24 小时最低分配期，适合 iOS/macOS 开发团队。[了解更多 →](#macos-deployment)
 
@@ -293,7 +293,7 @@ SSM Service（AWS 私有网络）
      │
      │ 端口转发
      ▼
-EC2 实例（Moltbot）
+EC2 实例（openclaw）
      │
      │ IAM Role 认证
      ▼
@@ -301,7 +301,7 @@ Amazon Bedrock（Claude Sonnet 4）
 ```
 
 **核心组件**：
-- **EC2 实例**：运行 Moltbot gateway 和浏览器控制
+- **EC2 实例**：运行 openclaw gateway 和浏览器控制
 - **IAM Role**：与 Bedrock 认证（无需 API Key）
 - **SSM Session Manager**：安全访问，无需公网端口
 - **VPC 端点**：私有网络访问 Bedrock
@@ -427,8 +427,8 @@ CreateVPCEndpoints: false  # 成本优化
 
 ## 资源
 
-- [Moltbot 文档](https://docs.molt.bot/)
-- [Moltbot GitHub](https://github.com/moltbot/moltbot)
+- [openclaw 文档](https://docs.molt.bot/)
+- [openclaw GitHub](https://github.com/openclaw/openclaw)
 - [Amazon Bedrock](https://aws.amazon.com/bedrock/)
 - [SSM Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)
 
@@ -563,7 +563,7 @@ journalctl --user -u clawdbot-gateway -n 100
 - ✅ iOS/macOS 应用开发和 CI/CD
 - ✅ Xcode 构建自动化
 - ✅ Apple 生态集成（iCloud、APNs）
-- ❌ 一般 Moltbot 使用（Linux 便宜 12 倍）
+- ❌ 一般 openclaw 使用（Linux 便宜 12 倍）
 
 ### Mac 实例选项
 
@@ -627,14 +627,14 @@ Clawdbot 本身有独立的许可证。参见 [Clawdbot License](https://github.
 
 ## 资源
 
-- [Moltbot 文档](https://docs.molt.bot/)
-- [Moltbot GitHub](https://github.com/moltbot/moltbot)
+- [openclaw 文档](https://docs.molt.bot/)
+- [openclaw GitHub](https://github.com/openclaw/openclaw)
 - [Amazon Bedrock](https://aws.amazon.com/bedrock/)
 - [SSM Session Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)
 
 ## 支持
 
-- **Moltbot**：[GitHub Issues](https://github.com/moltbot/moltbot/issues) | [Discord](https://discord.gg/moltbot)
+- **openclaw**：[GitHub Issues](https://github.com/openclaw/openclaw/issues) | [Discord](https://discord.gg/openclaw)
 - **AWS Bedrock**：[AWS re:Post](https://repost.aws/tags/bedrock)
 - **本项目**：[GitHub Issues](https://github.com/JiaDe-Wu/clawdbot-aws-bedrock/issues)
 
